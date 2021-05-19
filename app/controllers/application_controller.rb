@@ -9,6 +9,12 @@ class ApplicationController < ActionController::API
     invalid_authentication
   end
 
+  def authorization!(obj)
+    unless obj.user_id == current_user.id
+      return render json: { message: 'You do not have access to this resource' }, status: 403
+    end
+  end
+
   # Sets the @current_user with payload user_id
   def current_user
     @current_user ||= User.find_by(id: payload.first['user_id'])

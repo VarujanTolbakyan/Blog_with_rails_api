@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :users do
-    post 'login', on: :collection
-  end
+  resources :articles
+  resources :users
 end
