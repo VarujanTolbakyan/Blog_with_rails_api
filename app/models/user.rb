@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :articles
+
   validates_presence_of :name, :email, :password
   validates_uniqueness_of :email, case_sensitive: false,
     format: { with:  URI::MailTo::EMAIL_REGEXP  }
