@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :articles
+  has_many :comments
 
   validates_presence_of :name, :email, :password
   validates_uniqueness_of :email, case_sensitive: false,
