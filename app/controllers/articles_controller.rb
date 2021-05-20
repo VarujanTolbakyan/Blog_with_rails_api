@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.all
+    @articles = ArticlesFilter.result filter_params
 
     render json: { articles: @articles }
   end
@@ -50,5 +50,9 @@ class ArticlesController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def article_params
     params.require(:article).permit(:title, :body, :category)
+  end
+
+  def filter_params
+    params.permit :author_id, :category
   end
 end
