@@ -3,5 +3,7 @@ Rails.application.routes.draw do
     resources :comments, except: :index
   end
   get '/comments', to: 'comments#index', as: :comments
-  resources :users
+  resources :users do
+    post 'login', on: :collection
+  end
 end

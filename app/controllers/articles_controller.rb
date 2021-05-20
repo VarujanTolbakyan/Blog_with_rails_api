@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = ArticlesFilter.result filter_params
 
-    render json: { articles: @articles }
+    render json: { articles: @articles, count: @articles.count }
   end
 
   # GET /articles/1

@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
 
   # GET /articles/1/comments
   def index
-    @comments = Comment.all
+    @comments = CommentFilter.result filter_params
 
-    render json: { comments: @comments }
+    render json: { comments: @comments, count: @comments.count }
   end
 
   # GET /articles/1/comments/1
@@ -56,5 +56,9 @@ class CommentsController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def comment_params
     params.require(:comment).permit(:body, :user_id)
+  end
+
+  def filter_params
+    params.permit :commenter_id, :article_id
   end
 end
