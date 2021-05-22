@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-  has_many :articles
-  has_many :comments
+  with_options dependent: :destroy do |rel|
+    rel.has_many :articles
+    rel.has_many :comments
+  end   
 
   validates_presence_of :name, :email, :password
   validates_uniqueness_of :email, case_sensitive: false,
