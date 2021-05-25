@@ -74,7 +74,7 @@
 
 * /****************************/example
 
- `{
+ ```{
    "article" : {
       "author_id" : 8,
       "body" : "Lorem ipsum dolor sit amet, debet oportere sit an,  mei ut soluta eruditi. In per sapientem reprehendunt.",
@@ -85,14 +85,14 @@
       "title" : "Article"
    }
 }
-`
+```
 * For filter by author or category use command `$ curl -X GET -H 'Content-Type: application/json' -H 'Authorization: auth_token' 'http://localhost:3000/articles?author_id=5&category=news'`
 
 * output
 
 * /*************************************/
 
- `{
+ ```{
    "article" : {
       "author_id" : 5,
       "body" : "Lorem ipsum dolor sit amet, debet oportere sit an,  mei ut soluta eruditi. In per sapientem reprehendunt.",
@@ -103,13 +103,13 @@
       "title" : "Article"
    }
 }
-`
+```
 
 * comment `create` or `update` uses command `$ curl -X` POST or PUT `-H 'Content-Type: application/json' -H 'Authorization: auth_token' -d '{"comment": {"body": "comment body"}}' http://localhost:3000/articles/3/comments` or `http://localhost:3000/articles/3/comments/9`
 
 * output 
 
- `{
+ ```{
    "comment" : {
       "article_id" : 3,
       "body" : "examplearticle",
@@ -117,7 +117,7 @@
       "id" : 9
    }
 }
-` 
+``` 
 
 
 * ․․․․․․․․․․․ etc․
