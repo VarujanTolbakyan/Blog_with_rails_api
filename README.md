@@ -38,7 +38,7 @@
  
 * /*************************/example
 
- `{
+ ```{
    "articles" : [
       {
          "body" : "Lorem ipsum dolor sit amet, debet oportere sit an,  mei ut soluta eruditi. In per sapientem reprehen....",
@@ -66,7 +66,7 @@
       }
    ]
 }
-`
+```
 
 * For `create` or `update` article use command `$ curl -X` POST or PUT `-H 'Content-Type: application/json' -H 'Authorization: auth_token' -d '{"article": {"title": "title", "body": "article body"}}' http://localhost:3000/articles` or `http://localhost:3000/articles/5`
 
