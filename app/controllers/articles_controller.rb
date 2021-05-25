@@ -7,12 +7,12 @@ class ArticlesController < ApplicationController
   def index
     @articles = ArticlesFilter.result filter_params
 
-    render json: { articles: @articles, count: @articles.count }
+    render json: @articles, each_serializer: ArticlesSerializer
   end
 
   # GET /articles/1
   def show
-    render json: { article: @article }
+    render json: @article
   end
 
   # POST /articles
@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.build(article_params)
 
     if @article.save
-      render json: { article: @article }, status: :created
+      render json: @article, status: :created
     else
       render json: @article.errors, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   def update
     if @article.update(article_params)
-      render json: { article: @article, message: 'Article successful updated' }
+      render json: @article, status: :ok
     else
       render json: @article.errors, status: :unprocessable_entity
     end

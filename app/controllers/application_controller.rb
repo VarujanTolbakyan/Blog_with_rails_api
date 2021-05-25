@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  serialization_scope nil
+
   # Validates the token and user and sets the @current_user scope
   def authenticate!
     if !payload || !JsonWebToken.valid_payload?(payload.first)
