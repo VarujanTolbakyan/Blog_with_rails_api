@@ -20,4 +20,8 @@ class Article < ApplicationRecord
   def short_text_of_body
     body.length > 500 ? (body[0..499] + '....') : body
   end
+
+  def comments_count
+    comments.count
+  end
 end
