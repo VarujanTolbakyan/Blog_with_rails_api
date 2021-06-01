@@ -13,15 +13,7 @@ class Article < ApplicationRecord
   default_scope { order published_at: :desc }
   scope :filter_by_author, -> author_id { where user_id: author_id }
 
-  def author_name
-    user.name
-  end
-
   def short_text_of_body
     body.length > 500 ? (body[0..499] + '....') : body
-  end
-
-  def comments_count
-    comments.count
   end
 end

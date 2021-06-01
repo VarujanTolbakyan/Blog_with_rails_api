@@ -4,4 +4,8 @@ class ArticleSerializer < ApplicationSerializer
 
   #belongs_to :user
   #has_many :comments
+
+  def comments_count
+    object.comments.size
+  end
 end

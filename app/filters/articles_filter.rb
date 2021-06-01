@@ -9,6 +9,7 @@ class ArticlesFilter < BaseFilter
   end
 
   def result
+    relation = self.relation.includes :comments
     return relation if params.blank?
     @search ||= chain_queries relation, :search_by_category, :search_by_author
   end
